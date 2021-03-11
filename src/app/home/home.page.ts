@@ -6,7 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  situacao: string;
+  constructor() {
+    this.situacao = "Aprovado";
+  }
 
-  constructor() {}
-
+  atualizarSituacao(nota: number) {
+    if (nota >= 60) {
+      this.situacao = "Aprovado";
+    } else if (nota >= 20) {
+      this.situacao = "Avaliação final";
+    } else {
+      this.situacao = "Reprovado";
+    }
+  }
 }
